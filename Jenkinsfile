@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    // agent any
     node {
         env.NODEJS_HOME = "${tool 'Node 14.x'}"
 
