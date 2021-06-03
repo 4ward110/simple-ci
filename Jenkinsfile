@@ -1,21 +1,27 @@
 pipeline {
     agent any
+    node {
+        env.NODEJS_HOME = "${tool 'Node 14.x'}"
+        env.PATH="${env.NODEJS_HOME};${env.PATH}"
+        sh 'npm --version'
+    }
 
     stages {
         stage ('setup') {
             steps {
-                echo "hello world"
-                
+                git 'https://github.com/4ward110/simple-ci'
             }
         }
-        stage ('build') {
+
+        stage ('Build') {
             steps {
                 sh 'npm install'
             }
         }
-        stage ('test') {
+
+        stage ('Test') {
             steps {
-                sh 'mocha test'
+                sh 'npm test'
             }
         }
     }
