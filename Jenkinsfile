@@ -1,11 +1,11 @@
 pipeline {
     agent any
     node {
-        env.NODEJS_HOME = "${tool 'Node 14.x'}"
+        env.NODEJS_HOME = "${tool 'Node 6.x'}"
+
         env.PATH="${env.NODEJS_HOME};${env.PATH}"
         sh 'npm --version'
     }
-
     stages {
         stage ('setup') {
             steps {
@@ -15,8 +15,9 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'npm install'
+                echo 'npm install'
             }
+            sh 'npm install'
         }
 
         stage ('Test') {
