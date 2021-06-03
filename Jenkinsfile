@@ -4,9 +4,9 @@ pipeline {
         nodejs "nodejs"
     }
     stages {
-        stage ('git') {
+        stage ('Start') {
             steps {
-                git 'https://github.com/4ward110/simple-ci'
+                echo "hello"
             }
         }
 
