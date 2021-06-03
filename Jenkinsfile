@@ -1,15 +1,9 @@
 pipeline {
-    // agent any
-    node {
-        env.NODEJS_HOME = "${tool 'Node 14.x'}"
+    agent any
 
-        // on windows
-        env.PATH="${env.NODEJS_HOME};${env.PATH}"
-        sh 'npm --version'
+    tools {
+        nodejs "nodejs"
     }
-    // tools {
-    //     nodejs "nodejs"
-    // }
     stages {
         stage ('Start') {
             steps {
