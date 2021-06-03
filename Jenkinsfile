@@ -1,20 +1,21 @@
 pipeline {
     agent any
-    
+
     stages {
         stage ('setup') {
             steps {
                 echo "hello world"
+                
             }
         }
         stage ('build') {
             steps {
-                echo "building"
+                sh 'npm install'
             }
         }
         stage ('test') {
             steps {
-                echo "testing"
+                sh 'mocha test'
             }
         }
     }
